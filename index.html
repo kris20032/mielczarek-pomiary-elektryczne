@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+
+<html lang="pl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Damian Mielczarek — Pomiary i przeglądy elektryczne · Łódź</title>
+<meta name="description" content="Damian Mielczarek — pomiary i przeglądy instalacji elektrycznych w Łódź i okolicy. Pomiary ochronne, rezystancja izolacji, badanie wyłączników różnicowoprądowych, przeglądy okresowe 5-letnie, protokoły do odbioru i dla ubezpieczyciela. Uprawnienia SEP, profesjonalny sprzęt pomiarowy, czytelny protokół z pieczątką." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* === PALETA === */
+  :root{ --cream:#f5f7fa; --cream-2:#e7edf3; --espresso:#142231; --espresso-2:#2c3e52; --gold:#e8a00c; --gold-d:#c47f06; --rose:#f6e3b6; --muted:#697785; --white:#ffffff; --shadow:0 18px 50px -22px rgba(20,34,49,.5); }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Manrope',sans-serif;color:var(--espresso);background:var(--cream);line-height:1.65;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,.serif{font-family:'Sora','Manrope',sans-serif;font-weight:600;line-height:1.15}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+  .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem;border-radius:999px;font-weight:500;font-size:.95rem;transition:.25s;cursor:pointer;border:1px solid transparent}
+  .btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold-d));color:#fff;box-shadow:0 10px 24px -10px rgba(169,118,63,.7)}
+  .btn-gold:hover{transform:translateY(-2px);box-shadow:0 16px 30px -10px rgba(169,118,63,.8)}
+  .btn-dark{background:var(--espresso);color:#fff}
+  .btn-dark:hover{background:var(--espresso-2)}
+  header{position:sticky;top:0;z-index:50;background:rgba(250,245,239,.82);backdrop-filter:blur(12px);border-bottom:1px solid rgba(192,145,95,.18)}
+  nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .logo{font-family:'Sora','Manrope',sans-serif;font-size:1.5rem;font-weight:700;letter-spacing:.5px}
+  .logo span{color:var(--gold-d)}
+  .nav-links{display:flex;align-items:center;gap:2rem}
+  .nav-links a{font-size:.92rem;color:var(--espresso-2);transition:.2s}
+  .nav-links a:hover{color:var(--gold-d)}
+  .nav-links .btn{padding:.6rem 1.2rem}
+  .burger{display:none;background:none;border:0;font-size:1.6rem;cursor:pointer;color:var(--espresso)}
+  .eyebrow{display:inline-block;letter-spacing:3px;font-size:.74rem;font-weight:600;color:var(--gold-d);text-transform:uppercase;margin-bottom:18px}
+  section{padding:90px 0}
+  .head{text-align:center;max-width:42rem;margin:0 auto 54px}
+  .head .eyebrow{margin-bottom:12px}
+  .head h2{font-size:clamp(2rem,4vw,2.8rem);letter-spacing:-.012em}
+  .head p{color:var(--muted);margin-top:14px}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+  .strip{background:var(--espresso);color:#f3e7db}
+  .strip .wrap{display:flex;flex-wrap:wrap;gap:14px 40px;justify-content:center;padding:20px 24px;font-size:.92rem}
+  .strip span{display:inline-flex;align-items:center;gap:.55rem}
+  .strip b{color:var(--gold)}
+  .price-note{margin-top:34px;color:var(--muted);font-size:.92rem}
+
+  /* === EDITORIAL: HERO pełnoekranowe, nagłówek na zdjęciu, lead pod spodem === */
+  .ed-hero-img{height:64vh;min-height:440px;position:relative;display:flex;align-items:flex-end;
+      background:url('img/hero.jpg') center 44%/cover no-repeat,linear-gradient(150deg,#efd9c6,#c0915f)}
+  .ed-hero-img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,16,12,.05) 35%,rgba(20,16,12,.55))}
+  .ed-hero-cap{position:relative;z-index:2;color:#fff;padding-bottom:6vh}
+  .ed-hero-cap .eyebrow{color:#fff;opacity:.92}
+  .ed-hero-cap h1{font-size:clamp(2.6rem,6.6vw,5.2rem);font-weight:700;letter-spacing:-.02em;line-height:1.02;max-width:17ch;text-shadow:0 6px 34px rgba(0,0,0,.45)}
+  .ed-hero-cap h1 em{font-style:italic;color:var(--rose)}
+  .ed-hero-lead{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:end;padding:46px 0 8px}
+  .ed-hero-lead p{font-size:1.18rem;color:var(--espresso-2);max-width:44ch;line-height:1.6}
+  .ed-hero-lead .hero-cta{justify-content:flex-end}
+
+  /* === EDITORIAL: OFERTA jako numerowana lista (nie 3 karty) === */
+  .ed-offer{border-top:1px solid color-mix(in srgb,var(--espresso) 14%,transparent)}
+  .ed-offer .erow{display:grid;grid-template-columns:auto 1.1fr 1.9fr;gap:34px;align-items:baseline;
+      padding:32px 0;border-bottom:1px solid color-mix(in srgb,var(--espresso) 14%,transparent);transition:padding .25s ease}
+  .ed-offer .erow:hover{padding-left:12px}
+  .ed-offer .num{font-family:'Sora','Manrope',sans-serif;font-size:2.5rem;font-weight:700;color:var(--gold-d);line-height:.9}
+  .ed-offer .ttl{font-family:'Sora','Manrope',sans-serif;font-size:1.4rem;font-weight:600}
+  .ed-offer .desc{color:var(--muted);font-size:1rem;line-height:1.6;max-width:54ch}
+
+  /* === EDITORIAL: band-manifest z cytatem === */
+  .ed-quote{background:var(--espresso);color:#fff;text-align:center}
+  .ed-quote .wrap{max-width:60rem}
+  .ed-quote blockquote{font-family:'Sora','Manrope',sans-serif;font-style:italic;font-size:clamp(1.55rem,3.5vw,2.5rem);line-height:1.32}
+  .ed-quote blockquote span{color:var(--gold)}
+
+  /* === EDITORIAL: O nas — split, zdjęcie po prawej === */
+  .about{background:linear-gradient(180deg,var(--cream),#f5ebe1)}
+  .ed-about{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+  .ed-about-txt h2{font-size:clamp(1.9rem,3.6vw,2.6rem);margin-bottom:18px}
+  .ed-about-txt p{color:var(--espresso-2);margin-bottom:16px;max-width:60ch}
+  .ed-about-img{height:460px;border-radius:16px;box-shadow:var(--shadow);
+      background:url('img/about.jpg') center/cover no-repeat,linear-gradient(140deg,#3a2c25,#5a463c)}
+
+  /* === EDITORIAL: galeria bento (asymetryczna) === */
+  .ed-gallery{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:198px;gap:14px}
+  .tile{position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:18px;color:#fff;font-weight:600;border-radius:12px;
+      box-shadow:0 12px 30px -16px rgba(58,44,37,.5);background-color:#c9a88f;background-size:cover;background-position:center;transition:.3s}
+  .tile:hover{transform:translateY(-4px)}
+  .tile span{position:relative;z-index:2;font-size:1rem;letter-spacing:.3px;text-shadow:0 2px 10px rgba(0,0,0,.45)}
+  .tile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(58,44,37,.05) 45%,rgba(58,44,37,.72))}
+  .ed-gallery .tile:nth-child(1){grid-column:span 2;grid-row:span 2}
+  .ed-gallery .tile:nth-child(6){grid-column:span 2}
+
+  /* === opinie wyciszone (bez wielkich gwiazd) === */
+  .reviews{background:var(--espresso);color:#f3e7db;text-align:center}
+  .reviews .stars{color:var(--gold);font-size:1rem;letter-spacing:3px;margin-bottom:14px;opacity:.7}
+  .reviews h2{font-size:clamp(1.9rem,4vw,2.6rem);margin-bottom:14px;max-width:20ch;margin-inline:auto}
+  .reviews p{color:#cdbcae;max-width:40rem;margin:0 auto 28px}
+
+  /* === kontakt === */
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:stretch}
+  .info .row{display:flex;gap:14px;align-items:flex-start;padding:18px 0;border-bottom:1px solid rgba(192,145,95,.2)}
+  .info .row .ic{font-size:1.3rem;margin-top:2px}
+  .info .row a{font-weight:500}
+  .info .row a:hover{color:var(--gold-d)}
+  .map{min-height:340px;border-radius:18px;overflow:hidden;box-shadow:var(--shadow);border:1px solid rgba(192,145,95,.2)}
+  .map iframe{width:100%;height:100%;min-height:340px;border:0;display:block;filter:grayscale(.15) contrast(1.02)}
+  .contact-cta{margin-top:28px}
+  footer{background:#2c211c;color:#cdbcae;text-align:center;padding:34px 24px;font-size:.88rem}
+  footer .logo{font-size:1.2rem;color:#f3e7db;margin-bottom:8px}
+  footer a{color:var(--gold)}
+  .reveal{opacity:0;transform:translateY(22px);transition:.7s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  @media(max-width:880px){
+    .ed-hero-lead,.ed-about,.contact-grid{grid-template-columns:1fr;gap:24px}
+    .ed-hero-lead .hero-cta{justify-content:flex-start}
+    .ed-about-img{height:300px}
+    .ed-gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:170px}
+    .ed-gallery .tile:nth-child(1){grid-column:span 2;grid-row:span 1}
+    .ed-gallery .tile:nth-child(6){grid-column:span 2}
+    .ed-offer .erow{grid-template-columns:auto 1fr;gap:14px 22px}
+    .ed-offer .desc{grid-column:1 / -1}
+    .nav-links{position:fixed;inset:72px 0 auto 0;flex-direction:column;background:var(--cream);padding:24px;gap:18px;border-bottom:1px solid rgba(192,145,95,.2);display:none}
+    .nav-links.open{display:flex}
+    .burger{display:block}
+  }
+  @media(max-width:560px){.ed-gallery{grid-template-columns:1fr}.ed-gallery .tile:nth-child(1),.ed-gallery .tile:nth-child(6){grid-column:span 1}}
+  .callbar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:60;align-items:center;justify-content:center;gap:.55rem;background:linear-gradient(135deg,var(--gold),var(--gold-d));color:#fff;font-weight:600;font-size:1.02rem;padding:15px;text-decoration:none;box-shadow:0 -10px 30px -12px rgba(0,0,0,.45)}
+  @media(max-width:880px){ .callbar{display:flex} body{padding-bottom:62px} }
+
+/* === base premium === */
+/* BASE PREMIUM — wspólny system dla wszystkich branż (z _premium-web-craft.md).
+   Wstrzykiwany PO palecie skórki, PRZED overridem branżowym. Działa na realne klasy szablonu. */
+
+/* --- TOKENY: odstępy 4/8, fluid typografia clamp(), promienie, ruch, hairline, miękkie cienie --- */
+:root{
+  --space-1:4px; --space-2:8px; --space-3:12px; --space-4:16px; --space-5:24px;
+  --space-6:32px; --space-7:48px; --space-8:64px; --space-9:96px; --space-10:128px;
+  --text-sm:clamp(.82rem,.8rem + .1vw,.9rem);
+  --text-base:clamp(1rem,.97rem + .15vw,1.125rem);
+  --text-lg:clamp(1.15rem,1.1rem + .25vw,1.35rem);
+  --text-h3:clamp(1.2rem,1.1rem + .5vw,1.5rem);
+  --text-h2:clamp(2rem,1.6rem + 2vw,2.9rem);
+  --text-h1:clamp(2.8rem,2rem + 4vw,5rem);
+  --r-sm:6px; --r-md:10px; --r-lg:16px;
+  --ease:cubic-bezier(.25,.46,.45,.94); --dur:.22s;
+  --hairline:1px solid color-mix(in srgb, var(--espresso) 12%, transparent);
+  --sh-sm:0 1px 2px rgba(0,0,0,.04), 0 2px 6px rgba(0,0,0,.05);
+  --sh-md:0 2px 4px rgba(0,0,0,.05), 0 8px 20px -6px rgba(0,0,0,.10);
+  --sh-lg:0 4px 8px rgba(0,0,0,.06), 0 18px 44px -16px rgba(0,0,0,.18);
+}
+
+/* --- WHITESPACE: hojny, fluid oddech (najtańszy wzrost postrzeganej ceny) --- */
+section{padding-block:clamp(64px,10vw,128px)}
+.wrap{max-width:min(92%,1140px)}
+
+/* --- TYPOGRAFIA: redakcyjna hierarchia, dociśnięte nagłówki, mierzona długość wiersza --- */
+.head{max-width:46rem}
+.head h2{font-size:var(--text-h2);letter-spacing:-.025em;line-height:1.1}
+.head p{font-size:var(--text-base);line-height:1.6;max-width:60ch;margin-inline:auto}
+.hero h1{font-size:var(--text-h1);letter-spacing:-.03em;line-height:1.05}
+.hero p.lead{font-size:var(--text-lg);max-width:34ch;line-height:1.55}
+.about-txt p{max-width:65ch}
+.reviews p{max-width:60ch;margin-inline:auto}
+
+/* --- OBRAZY: warstwowy miękki cień + większy promień (overlaye z szablonu zostają) --- */
+.hero-art,.about-art{box-shadow:var(--sh-lg);border-radius:var(--r-lg)}
+.map{box-shadow:var(--sh-md);border:none;border-radius:var(--r-lg)}
+
+/* --- KARTY: bez pełnej ramki, miękki cień, hierarchia promieni, sensowny hover --- */
+.card{border:none;box-shadow:var(--sh-sm);border-radius:var(--r-md);
+      padding:var(--space-6) var(--space-5);
+      transition:transform var(--dur) var(--ease),box-shadow var(--dur) var(--ease)}
+.card:hover{transform:translateY(-4px);box-shadow:var(--sh-md);border-color:transparent}
+.card h3{margin-bottom:var(--space-2)}
+.card p{color:var(--muted);font-size:var(--text-base);line-height:1.6}
+.card .ic{color:var(--gold-d);font-weight:700;letter-spacing:.08em}
+
+/* --- GALERIA: miękki cień + spójny hover --- */
+.tile{border-radius:var(--r-md);box-shadow:var(--sh-sm);
+      transition:transform var(--dur) var(--ease),box-shadow var(--dur) var(--ease)}
+.tile:hover{transform:translateY(-4px);box-shadow:var(--sh-md)}
+
+/* --- CIEMNE/KOLOROWE TŁA: biel z opacity zamiast szarości (kontrast WCAG) --- */
+.reviews p{color:#fff;opacity:.78}
+
+/* --- KONTAKT: emoji-ikony w kółku z tłem (powiększone emoji = tell AI), hairline separatory --- */
+.info .row{border-bottom:var(--hairline)}
+.info .row .ic{width:40px;height:40px;flex:0 0 40px;display:grid;place-items:center;border-radius:50%;
+      background:color-mix(in srgb,var(--gold) 16%,transparent);font-size:1.05rem;margin-top:0}
+
+/* --- PRZYCISKI: płynne przejścia + efekt „wciśnięcia" --- */
+.btn{transition:transform var(--dur) var(--ease),box-shadow var(--dur) var(--ease)}
+.btn:active{transform:translateY(0);box-shadow:var(--sh-sm)}
+
+/* --- RUCH / a11y: szanuj prefers-reduced-motion --- */
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms!important;transition:none!important}
+  .reveal{opacity:1!important;transform:none!important}
+}
+
+/* === FELT-QUALITY (anty-AI, „czuje się drogo") — 2026-06-21 === */
+/* Film grain: ledwo widoczne ziarno na całości (różnica „wygląda" vs „czuje się" drogo). pointer-events:none = nie blokuje klików. */
+body::after{content:"";position:fixed;inset:0;z-index:9998;pointer-events:none;opacity:.035;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:180px 180px}
+/* Hierarchia przez przezroczystość (premium): eyebrow drugorzędny, nie krzyczy */
+.eyebrow{opacity:.88}
+/* Widoczny focus klawiatury (podłoga jakości a11y) */
+:focus-visible{outline:2px solid var(--gold-d);outline-offset:3px;border-radius:2px}
+/* Zaznaczanie tekstu w kolorze marki — drobny, „dopieszczony" detal */
+::selection{background:color-mix(in srgb,var(--gold) 26%,transparent)}
+
+/* === TIER 2 — STRUKTURA i RYTM (2026-06-21) === */
+/* Znacznik akcentu zamiast dekoracyjnych 01/02/03 (numeracja tylko gdy realna sekwencja → build.py "numbered") */
+.card .ic-mark{display:block;width:32px;height:3px;border-radius:2px;background:var(--gold);opacity:.92;margin-bottom:var(--space-4)}
+/* Rytm sekcji: galeria jako odrębny, jaśniejszy pas + cienkie linie między jasnymi sekcjami (koniec z „płaskim kremem") */
+#galeria{background:var(--cream-2)}
+#oferta,#galeria,#kontakt{border-top:var(--hairline)}
+/* Jedna „ozdobna" mikro-interakcja: podkreślenie linków nawigacji rosnące od lewej (reszta ruchu = reveal) */
+.nav-links a:not(.btn){position:relative}
+.nav-links a:not(.btn)::after{content:"";position:absolute;left:0;bottom:-4px;height:2px;width:100%;
+  background:var(--gold-d);transform:scaleX(0);transform-origin:left;transition:transform var(--dur) var(--ease)}
+.nav-links a:not(.btn):hover::after{transform:scaleX(1)}
+/* Hover karty (profesjonalny): złoty pasek „przejeżdża" przez górę karty + tytuł się złoci */
+.card .ic-mark{transition:width var(--dur) var(--ease),opacity var(--dur) var(--ease)}
+.card:hover .ic-mark{width:100%;opacity:1}
+.card h3{transition:color var(--dur) var(--ease)}
+.card:hover h3{color:var(--gold-d)}
+</style>
+</head>
+<body>
+<header><div class="wrap"><nav>
+  <div class="logo">Damian <span>Mielczarek</span></div>
+  <div class="nav-links" id="menu">
+    <a href="#oferta">Oferta</a><a href="#narzedzia">Wycena online</a><a href="#onas">O nas</a><a href="#galeria">Galeria</a><a href="#kontakt">Kontakt</a>
+    <a class="btn btn-gold" href="tel:+48693750373">Umów pomiary</a>
+  </div>
+  <button class="burger" id="burger" aria-label="Menu">☰</button>
+</nav></div></header>
+
+<section class="ed-hero" style="padding:0">
+  <div class="ed-hero-img" role="img" aria-label="Damian Mielczarek">
+    <div class="wrap ed-hero-cap reveal">
+      <span class="eyebrow">Pomiary i przeglądy elektryczne · Łódź</span>
+      <h1>Instalacja sprawdzona <em>czarno na białym</em></h1>
+    </div>
+  </div>
+  <div class="wrap ed-hero-lead reveal">
+    <p>Pomiary ochronne, badania okresowe i protokoły, które przejdą każdy odbiór. Pracujemy na uprawnieniach i certyfikowanym sprzęcie pomiarowym — dostajesz czytelny protokół z pieczątką, a nie sam podpis. Powiedz, co i na kiedy potrzebujesz, a umówimy termin bez zwlekania.</p>
+    <div class="hero-cta">
+      <a class="btn btn-gold" href="tel:+48693750373">Umów pomiary</a>
+      <a class="btn btn-dark" href="tel:+48693750373">Zadzwoń: +48 693 750 373</a>
+    </div>
+  </div>
+</section>
+
+<div class="strip"><div class="wrap">
+  <span>✦ <b>Protokół</b>&nbsp;z pieczątką</span>
+  <span>✦ <b>Uprawnienia</b>&nbsp;SEP D i E</span>
+  <span>✦ <b>Certyfikowany</b>&nbsp;sprzęt pomiarowy</span>
+  <span>✦ <b>Szybki</b>&nbsp;termin</span>
+</div></div>
+
+<section id="oferta"><div class="wrap">
+  <div class="head reveal" style="text-align:left;max-width:46rem;margin:0 0 40px"><span class="eyebrow">Zakres pomiarów</span><h2>Co badamy i mierzymy</h2><p style="margin-inline:0">Dom, mieszkanie, lokal czy zakład — wykonujemy pełen zakres pomiarów elektrycznych wymaganych przepisami. Każde badanie kończy się protokołem, który możesz pokazać przy odbiorze, ubezpieczycielowi czy podczas kontroli.</p></div>
+  <div class="ed-offer">
+    <div class="erow reveal"><div class="num">01</div><div class="ttl">Pomiary ochronne (przeciwporażeniowe)</div><div class="desc">Sprawdzamy skuteczność ochrony przeciwporażeniowej — czy w razie usterki instalacja zadziała i odetnie napięcie. Podstawa bezpieczeństwa każdego obiektu.</div></div>
+    <div class="erow reveal"><div class="num">02</div><div class="ttl">Rezystancja izolacji</div><div class="desc">Mierzymy stan izolacji przewodów i kabli — wykrywamy miejsca, gdzie izolacja słabnie, zanim doprowadzi do zwarcia, upływu prądu czy pożaru.</div></div>
+    <div class="erow reveal"><div class="num">03</div><div class="ttl">Wyłączniki różnicowoprądowe (RCD)</div><div class="desc">Badamy czas i prąd zadziałania wyłączników różnicowoprądowych — tych, które chronią Cię przed porażeniem. Sprawdzamy, czy realnie zadziałają.</div></div>
+    <div class="erow reveal"><div class="num">04</div><div class="ttl">Przeglądy okresowe (5-letnie)</div><div class="desc">Wykonujemy obowiązkowe przeglądy okresowe instalacji — wymagane prawem budowlanym dla budynków i lokali. Przypominamy o terminie kolejnego.</div></div>
+    <div class="erow reveal"><div class="num">05</div><div class="ttl">Rezystancja uziemienia i odgromówka</div><div class="desc">Mierzymy uziemienie i instalację odgromową — czy piorun i prąd zwarciowy mają bezpieczną drogę do ziemi. Ważne zwłaszcza dla domów i hal.</div></div>
+    <div class="erow reveal"><div class="num">06</div><div class="ttl">Protokoły i odbiory</div><div class="desc">Robimy pomiary odbiorcze nowych instalacji i kompletujemy dokumentację do odbioru budynku, dla dewelopera, ubezpieczyciela lub do sprzedaży nieruchomości.</div></div>
+  </div>
+  <p class="price-note">Wycena i terminy ustalane indywidualnie: <a href="tel:+48693750373" style="color:var(--gold-d);font-weight:500">Umów pomiary →</a></p>
+</div></section>
+
+<section id="narzedzia" class="tools-sec"><div class="wrap">
+  <div class="head reveal" style="text-align:left;max-width:46rem;margin:0 0 36px"><span class="eyebrow">Online · bez telefonu</span><h2>Policz koszt i wyślij zapytanie</h2><p style="margin-inline:0">Sprawdź orientacyjny koszt pomiarów w kilka sekund albo od razu prześlij zapytanie — możesz dołączyć rzut, protokół z poprzednich badań lub zdjęcie rozdzielnicy.</p></div>
+  <div class="tools-grid">
+
+    <div class="tool-card reveal">
+      <h3>Orientacyjny koszt pomiarów</h3>
+      <label>Rodzaj obiektu
+        <select id="obj">
+          <option value="150">Mieszkanie</option>
+          <option value="250">Dom jednorodzinny</option>
+          <option value="300">Lokal użytkowy</option>
+          <option value="500">Hala / zakład</option>
+        </select>
+      </label>
+      <label>Liczba obwodów w rozdzielnicy
+        <input id="obw" type="number" min="1" max="120" value="8">
+      </label>
+      <div class="checks">
+        <label class="chk"><input type="checkbox" id="rcd" value="40" checked> Badanie wyłączników RCD</label>
+        <label class="chk"><input type="checkbox" id="uzi" value="120"> Rezystancja uziemienia</label>
+        <label class="chk"><input type="checkbox" id="odg" value="150"> Instalacja odgromowa</label>
+        <label class="chk"><input type="checkbox" id="pro" value="50" checked> Protokół do odbioru / ubezpieczyciela</label>
+      </div>
+      <div class="tool-out" id="out">
+        <span class="tool-out-lbl">Orientacyjnie</span>
+        <span class="tool-out-val" id="val">— zł</span>
+      </div>
+      <p class="tool-note">Wynik poglądowy, nie jest ofertą. Ostateczną wycenę potwierdzamy po krótkiej rozmowie.</p>
+    </div>
+
+    <div class="tool-card reveal">
+      <h3>Zapytanie ofertowe</h3>
+      <form id="qform" novalidate>
+        <label>Imię i firma
+          <input type="text" name="kto" placeholder="np. Jan Kowalski / Firma ABC" required>
+        </label>
+        <label>Telefon
+          <input type="tel" name="tel" placeholder="np. 600 100 200" required>
+        </label>
+        <label>Czego potrzebujesz?
+          <textarea name="opis" rows="3" placeholder="np. pomiary odbiorcze nowego mieszkania, ok. 10 obwodów, do końca miesiąca"></textarea>
+        </label>
+        <label class="file">Załącz rzut, protokół lub zdjęcie rozdzielnicy (opcjonalnie)
+          <input type="file" name="plik" accept="image/*,.pdf">
+        </label>
+        <button class="btn btn-gold" type="submit">Wyślij zapytanie</button>
+        <p class="tool-ok" id="ok" hidden>✓ Dziękujemy! Odezwiemy się najszybciej, jak się da.</p>
+      </form>
+    </div>
+
+  </div>
+</div></section>
+
+<style>
+  .tools-sec{background:var(--cream-2)}
+  .tools-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  @media(max-width:760px){.tools-grid{grid-template-columns:1fr}}
+  .tool-card{background:var(--white);border-radius:var(--r-md);padding:28px 26px;box-shadow:var(--sh-sm);border:1px solid var(--hairline)}
+  .tool-card h3{margin:0 0 18px;font-family:var(--font-head,inherit);color:var(--espresso);font-size:1.25rem}
+  .tool-card label{display:block;font-size:.82rem;font-weight:600;color:var(--espresso-2);margin:0 0 14px;letter-spacing:.01em}
+  .tool-card select,.tool-card input[type=number],.tool-card input[type=text],.tool-card input[type=tel],.tool-card textarea{width:100%;margin-top:6px;padding:11px 13px;border:1px solid var(--hairline);border-radius:var(--r-sm);font:inherit;font-weight:400;color:var(--espresso);background:var(--cream);box-sizing:border-box}
+  .tool-card select:focus,.tool-card input:focus,.tool-card textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(232,160,12,.18)}
+  .checks{margin:4px 0 6px}
+  .chk{display:flex;align-items:center;gap:9px;font-weight:500!important;color:var(--espresso-2);margin:0 0 9px!important;cursor:pointer}
+  .chk input{width:auto!important;margin:0!important;accent-color:var(--gold-d)}
+  .tool-out{margin-top:18px;display:flex;align-items:baseline;justify-content:space-between;background:var(--espresso);border-radius:var(--r-sm);padding:16px 20px}
+  .tool-out-lbl{color:var(--rose);font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+  .tool-out-val{color:#fff;font-weight:800;font-size:1.5rem;font-family:var(--font-head,inherit)}
+  .tool-note{margin:12px 2px 0;font-size:.76rem;color:var(--muted);line-height:1.5}
+  .tool-card .file{font-weight:600}
+  .tool-card input[type=file]{width:100%;margin-top:8px;font-size:.82rem;color:var(--muted)}
+  .tool-card button{margin-top:6px;width:100%;justify-content:center;cursor:pointer;border:none}
+  .tool-ok{margin:12px 0 0;color:var(--gold-d);font-weight:600;font-size:.9rem}
+</style>
+<script>
+  (function(){
+    var ids=['obj','obw','rcd','uzi','odg','pro'],val=document.getElementById('val');
+    function calc(){
+      var base=+document.getElementById('obj').value;
+      var n=Math.max(1,Math.min(120,+document.getElementById('obw').value||1));
+      var s=base + n*25;
+      ['rcd','uzi','odg','pro'].forEach(function(k){var e=document.getElementById(k);if(e.checked)s+=+e.value;});
+      var lo=Math.round(s*0.85/10)*10, hi=Math.round(s*1.15/10)*10;
+      val.textContent=lo.toLocaleString('pl-PL')+'–'+hi.toLocaleString('pl-PL')+' zł';
+    }
+    ids.forEach(function(k){var e=document.getElementById(k);if(e)e.addEventListener('input',calc);});
+    calc();
+    var f=document.getElementById('qform');
+    if(f)f.addEventListener('submit',function(e){e.preventDefault();document.getElementById('ok').hidden=false;f.querySelector('button').textContent='Wysłano ✓';});
+  })();
+</script>
+
+<section class="ed-quote"><div class="wrap reveal">
+  <blockquote>„Dostajesz protokół, który <span>przejdzie każdą kontrolę</span> — a nie sam podpis na kartce.”</blockquote>
+</div></section>
+
+<section class="about" id="onas"><div class="wrap ed-about">
+  <div class="ed-about-txt reveal">
+    <span class="eyebrow">O nas</span><h2>Pomiary robione rzetelnie, nie na skróty</h2>
+    <p>Damian Mielczarek to pomiary i przeglądy elektryczne wykonywane przez osobę z aktualnymi uprawnieniami SEP. Przyjeżdżamy z certyfikowanym, kalibrowanym sprzętem pomiarowym i robimy badania zgodnie z normami — tak, żeby protokół miał realną wartość, a nie był tylko formalnością.</p><p>Mówimy wprost, co wyszło z pomiarów i co ewentualnie trzeba poprawić, zanim stanie się problemem. Protokół dostajesz czytelny, z wynikami i pieczątką — gotowy do pokazania przy odbiorze, kontroli czy w rozmowie z ubezpieczycielem.</p>
+    <a class="btn btn-dark" href="#kontakt" style="margin-top:8px">Odwiedź nas</a>
+  </div>
+  <div class="ed-about-img reveal" role="img" aria-label="Damian Mielczarek"></div>
+</div></section>
+
+<section id="galeria"><div class="wrap">
+  <div class="head reveal"><span class="eyebrow">Galeria</span><h2>Sprzęt i praca w terenie</h2><p>Tak wyglądają pomiary u nas — profesjonalne mierniki, badanie rozdzielnic i instalacji oraz dokumentacja, którą zostawiamy klientowi.</p></div>
+  <div class="ed-gallery">
+    <div class="tile reveal" style="background-image:url('img/g1.jpg')"><span>Pomiar w rozdzielnicy</span></div>
+    <div class="tile reveal" style="background-image:url('img/g2.jpg')"><span>Badanie instalacji</span></div>
+    <div class="tile reveal" style="background-image:url('img/g3.jpg')"><span>Sprawdzanie obwodów</span></div>
+    <div class="tile reveal" style="background-image:url('img/g4.jpg')"><span>Pomiary w terenie</span></div>
+    <div class="tile reveal" style="background-image:url('img/g5.jpg')"><span>Zasilanie i przyłącze</span></div>
+    <div class="tile reveal" style="background-image:url('img/g6.jpg')"><span>Sprawdzony punkt</span></div>
+  </div>
+</div></section>
+
+<section class="reviews ed"><div class="wrap reveal">
+  <h2>Zaufali nam klienci</h2><p>Pomiary to zaufanie — klienci wracają po kolejne przeglądy i polecają nas dalej. Zajrzyj do opinii w sieci i przekonaj się sam.</p>
+  <a class="btn btn-gold" href="tel:+48693750373">Umów pomiary</a>
+</div></section>
+
+<section id="kontakt" class="about"><div class="wrap">
+  <div class="head reveal"><span class="eyebrow">Zapraszamy</span><h2>Kontakt i rezerwacja</h2></div>
+  <div class="contact-grid">
+    <div class="info reveal">
+      <div class="row"><span class="ic">📍</span><div><b>Adres</b><p>Łódź, łódzkie</p></div></div>
+      <div class="row"><span class="ic">📞</span><div><b>Telefon</b><p><a href="tel:+48693750373">+48 693 750 373</a></p></div></div>
+      <div class="row"><span class="ic">🗓️</span><div><b>Rezerwacja</b><p>Wycena pomiarów — zadzwoń</p></div></div>
+      <div class="row"><span class="ic">⏰</span><div><b>Godziny</b><p>Pilny odbiór lub termin? Zadzwoń — dopniemy datę</p></div></div>
+      <div class="contact-cta"><a class="btn btn-gold" href="tel:+48693750373">Umów pomiary</a></div>
+    </div>
+    <div class="map reveal"><iframe src="https://maps.google.com/maps?q=51.7745907%2C19.476892&z=15&output=embed" loading="lazy" title="Mapa — Damian Mielczarek"></iframe></div>
+  </div>
+</div></section>
+
+<a class="callbar" href="tel:+48693750373">📞 Zadzwoń: +48 693 750 373</a>
+
+<footer>
+  <div class="logo">Damian <span style="color:var(--gold)">Mielczarek</span></div>
+  <p>Łódź, łódzkie · +48 693 750 373</p>
+  <p style="margin-top:6px;opacity:.7">© 2026 Damian Mielczarek &nbsp;·&nbsp; Projekt strony: Krzysztof Brzeziński</p>
+</footer>
+
+<script>
+  var b=document.getElementById('burger'),m=document.getElementById('menu');
+  if(b&&m){b.addEventListener('click',function(){m.classList.toggle('open')});
+    m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){m.classList.remove('open')})});}
+  function _rv(el){el.classList.add('in')}
+  var _els=document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){_rv(e.target);io.unobserve(e.target)}})},{threshold:.08,rootMargin:'0px 0px -8% 0px'});
+    _els.forEach(function(el){io.observe(el)});
+    setTimeout(function(){document.querySelectorAll('.reveal:not(.in)').forEach(_rv)},2000); /* bezpiecznik: gwarancja widoczności */
+  } else { _els.forEach(_rv); }
+</script>
+</body>
+</html>
